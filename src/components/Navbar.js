@@ -9,6 +9,7 @@ import {
   TextField,
   Card,
   CardContent,
+  FormControl
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import AppsIcon from '@mui/icons-material/Apps';
@@ -43,6 +44,9 @@ export const Navbar = () => {
   const [isRegistrationOpened, setIsRegistrationOpened] = useState(false);
 
   const { cart, updateCart } = useCartContext();
+
+  const textIfCartEmpty = "У вас не має товарів у корзині."
+  const textIfCartNotEmpty = "Ваше замовлення прийнято. Очікуйте на лист, який ми вам вислали на електронну пошту, вказану в особистому кабінеті."
 
   const handleRegistrationModalOpen = () => {
     setIsModalOpened(false);
@@ -170,18 +174,20 @@ export const Navbar = () => {
         }}
       >
         <Box sx={style}>
-          <TextField required id="login" label="email" placeholder="email" variant="filled" />
-          <TextField required id="password" label="Пароль" placeholder="Пароль" variant="filled" />
-          <TextField
-            required
-            id="password"
-            label="Повторіть пароль"
-            placeholder="Повторіть пароль"
-            variant="filled"
-          />
-          <Button variant="contained" sx={{ backgroundColor: '#000000' }}>
-            Зареєструватися
-          </Button>
+          <FormControl>
+            <TextField required id="login" label="email" placeholder="email" variant="filled" />
+            <TextField required id="password" label="Пароль" placeholder="Пароль" variant="filled" />
+            <TextField
+              required
+              id="password"
+              label="Повторіть пароль"
+              placeholder="Повторіть пароль"
+              variant="filled"
+            />
+            <Button variant="contained" sx={{ backgroundColor: '#000000' }}>
+              Зареєструватися
+            </Button>
+          </FormControl>
         </Box>
       </Modal>
       <Modal
@@ -255,7 +261,7 @@ export const Navbar = () => {
             )}
           </div>
           <div>
-            <Button variant="contained" sx={{ backgroundColor: 'green' }} onClick={() => alert("Ваше замовлення прийнято. Очікуйте на лист, який ми вам вислали на електронну пошту, вказану в особистому кабінеті.")}>
+            <Button variant="contained" sx={{ backgroundColor: 'green' }} onClick={() => cart.length === 0 ? alert(textIfCartEmpty) : alert(textIfCartNotEmpty)}>
               Оформити замовлення
             </Button>
           </div>

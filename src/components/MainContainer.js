@@ -11,8 +11,8 @@ export const MainContainer = () => {
   return (
     <Box
       sx={{
-        width: '100vw',
-        height: '100vh',
+        width: 'auto',
+        height: 'auto',
         backgroundColor: '#e1f5fe',
         display: 'flex',
         flexDirection: 'row',
@@ -37,7 +37,7 @@ export const MainContainer = () => {
             >
               Назад
             </Button>
-            <Products catId={currentTab} />
+            <Products catId={currentTab}/>
           </div>
         </>
       )}

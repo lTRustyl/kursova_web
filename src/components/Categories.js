@@ -9,7 +9,7 @@ export const Categories = ({ setCurrentTab }) => {
     >
       <Card
         sx={{
-          width: 325,
+          width: 330,
           height: 300,
           paddingRight: 5,
           backgroundColor: '#29b6f6',

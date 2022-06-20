@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar />
+        <Navbar/>
         <Box
           sx={{
             display: 'flex',
@@ -22,11 +22,11 @@ function App() {
           }}
         >
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/categories" element={<MainContainer />} />
+            <Route path="/" element={<Home/>}/>
+            <Route path="/categories" element={<MainContainer/>} />
           </Routes>
         </Box>
-        <Footer />
+        <Footer/>
       </div>
     </BrowserRouter>
   );
